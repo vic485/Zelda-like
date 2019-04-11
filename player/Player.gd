@@ -1,9 +1,6 @@
-extends KinematicBody2D
+extends "res://engine/entity.gd"
 
 const SPEED = 70
-
-var moveDir = Vector2(0, 0)
-var spriteDir = "down"
 
 func _physics_process(delta):
     control_loop()
@@ -32,24 +29,3 @@ func control_loop():
 
     moveDir.x = -int(left) + int(right);
     moveDir.y = int(down) - int(up);
-
-func move_loop():
-    var motion = moveDir.normalized() * SPEED
-    move_and_slide(motion, Vector2(0, 0))
-
-func spritedir_loop():
-    match moveDir:
-        Vector2(-1, 0):
-            spriteDir = "Left"
-        Vector2(1, 0):
-            spriteDir = "Right"
-        Vector2(0, -1):
-            spriteDir = "Up"
-        Vector2(0, 1):
-            spriteDir = "Down"
-
-func anim_switch(animation):
-    var newAnim = str(animation, spriteDir)
-
-    if $Anim.current_animation != newAnim:
-        $Anim.play(newAnim);
