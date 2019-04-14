@@ -33,6 +33,6 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="Stalfos" parent="." index="2" instance=ExtResource( 3 )]
 
-position = Vector2( 47.5495, 55.2603 )
+position = Vector2( 36.883, 41.7665 )
 
 
